@@ -14,10 +14,10 @@ repository = mydb.cursor()
 ##############################################################
 comando = 'SELECT * FROM armas'
 repository.execute(comando)
-dadosDoDB = repository.fetchall()
+armasDoDB = repository.fetchall()
 dados = []
 
-for dado in dadosDoDB:
+for dado in armasDoDB:
     dados.append(Armas(*dado))
 
 for dado in dados:
