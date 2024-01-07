@@ -6,13 +6,35 @@ class Armas:
         self.dano = dano
         self.peso = peso
         self.propriedade = propriedade
+        self.danoExtra = None
+        self.recomendada = '(Arma Recomendada!)'
+        self.descricao = ''
+        if (dano > 15) :
+            self.danoExtra = '+2'
 
-    def toString(self):
+    def addDescricao(self, descricao):
+        self.descricao = f'''
+            ######################################################################################################
+            {descricao}
+            ######################################################################################################
+        '''
+
+
+    def toString(self, recomenado = False):
+        if recomenado:
+            return f'''
+    id: {self.id}
+    nome: {self.nome} {self.recomendada}
+    custo: {self.custo}
+    dano: {self.dano}
+    peso: {self.peso}
+    propriedade: {self.propriedade}
+            '''
         return f'''
-        id: {self.id}
-        nome: {self.nome}
-        custo: {self.custo}
-        dano: {self.dano}
-        peso: {self.peso}
-        propriedade: {self.propriedade}
+    id: {self.id}
+    nome: {self.nome}
+    custo: {self.custo}
+    dano: {self.dano}
+    peso: {self.peso}
+    propriedade: {self.propriedade}
         '''
